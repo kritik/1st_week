@@ -23,5 +23,22 @@ class Channel
 	  @items << Item.new(item) if item.include?("<title>")
 	end
   end
-  #TODO: get news titles, count
+
+  # polu4aem vse zagolovki novostej
+  def title_headers
+    @items.collect do |item|
+	  "#{item.title}-#{item.pubDate}"
+	end
+  end
+  
+  
+  # kolichestvo novostej
+  def count
+	@items.count
+  end
 end
+
+
+
+
+
