@@ -16,9 +16,11 @@ class Channel
 	
 	# polu4aem rezultat ot delenija po tegam <item> i </item>
 	# i  raspechatyvaem
+	@items = Array.new
 	xml.split(/<\/?item>/).each do |item|
-	 Item.new(item) if item.include?("<title>")
-	 puts  "--------"
+	  # sozdaem novyj objekt klassa Item esli 
+	  # v peremennoj item est' teg <title>
+	  @items << Item.new(item) if item.include?("<title>")
 	end
   end
   #TODO: get news titles, count
