@@ -1,3 +1,5 @@
+require './item.rb'
+
 class Channel
   # stavim gettery i settery
   attr_accessor :title, :link
@@ -15,7 +17,7 @@ class Channel
 	# polu4aem rezultat ot delenija po tegam <item> i </item>
 	# i  raspechatyvaem
 	xml.split(/<\/?item>/).each do |item|
-	 p item
+	 Item.new(item) if item.include?("<title>")
 	 puts  "--------"
 	end
   end
